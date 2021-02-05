@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}payment{% endblock title %}
+{% block body %}
+<style>
+    .login-form {
+        width: 340px;
+        margin: 50px auto;
+          font-size: 15px;
+    }
+    .login-form form {
+        margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+        border-radius:24px
+    }
+    .login-form h2 {
+        margin: 0 0 15px;
+    }
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 24px;
+    
+    }
+    .btn {        
+        font-size: 15px;
+        font-weight: bold;
+        border-radius:24px
+    }
+    </style>
+{% if user.is_authenticated %}
+
+
+<div class="login-form">
+    
+
+    <form action="" method="POST">
+        {%   csrf_token   %}  
+        <div class="form-group">
+            <h4 class="form-control"  style="background-color:rgb(161, 238, 38); color:red">Hi , {{user.username}}</h4>
+        </div> 
+        <div class="form-group">
+            <h4 class="form-control"  style="background-color:rgb(161, 238, 38); color:red">Pay to enjoy this ice-cream</h4>
+        </div>
+        <script
+            src="https://checkout.razorpay.com/v1/checkout.js"
+            data-key="rzp_test_agtBEf4PEspMpI" 
+            data-amount="100" 
+            data-currency="INR"
+            data-order_id="{{payment.id}}"
+            data-buttontext="Pay with Razorpay"
+            data-name="Ice Cream Bar"
+            data-description="Enjoy our world best ice-creams along with your family !!!"
+            data-image="/static/img/myPic.jpg"
+            data-prefill.name="Holmes"
+            data-prefill.email="Holmes@example.com"
+            data-theme.color="#F37254"
+        ></script>
+        <input type="hidden" custom="Hidden Element" name="hidden">
+        </form>
+
+</div>
+
+{% else %}
+<div class="login-form " >
+<p    style="text-align: center;color:blueviolet">you are not logged in</p>
+ <p class="text-center px-10"><a    class="btn btn-primary btn-block" href="/login">Log in</a></p>
+ <br>
+ <p class="text-center"><a class="btn btn-primary btn-block mx-10"   href="/register">Create an Account</a></p>
+</div>
+{%   endif  %}
+
+{%endblock body%}
