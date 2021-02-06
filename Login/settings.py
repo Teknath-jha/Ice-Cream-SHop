@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '#z4)lu_r!^p%plnrr33c&hftgy#72mw1fd^7kn_!c6=o5jf$n$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*'
 ]
@@ -127,7 +127,9 @@ STATIC_URL = '/static/'
 
 
 # Manually added from here ------------------------------------------------->
- STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+ STATICFILES_DIRS = [
+     os.path.join(BASE_DIR,'static')
+ ]
 # media file willupload here 
 MEDIA_URL="/media/"
 MEDIA_ROOT=os.path.join(BASE_DIR,'media_cdn')
