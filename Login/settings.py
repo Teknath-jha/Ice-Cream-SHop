@@ -127,11 +127,11 @@ STATIC_URL = '/static/'
 
 
 # Manually added from here ------------------------------------------------->
-#  STATICFILES_DIRS = [
-#      os.path.join(BASE_DIR,"static")
-# ]
+ STATICFILES_DIRS = [
+     os.path.join(BASE_DIR,"static")
+]
 # media file willupload here 
 MEDIA_URL="/media/"
 MEDIA_ROOT=os.path.join(BASE_DIR,'media_cdn')
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
