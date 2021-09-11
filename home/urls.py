@@ -23,4 +23,4 @@ urlpatterns = [
     path('raZorpay/',views.razorPay , name='razorpaY')
     # yaha par name/   i.e slash important hai  buit agar koi function ko call kar rahe to bikul nahi laga skte 
     
-] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+] 
